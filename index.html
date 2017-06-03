@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HOORAY for GIPHY'S!</title>
+
+	<!-- LINK to jQuery Library-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!--Link to my CSS-->
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+<body>
+
+<!-- Bootstrap starts here-->
+<div class="container">
+	
+	<!-- Jumbotron-->
+	<div class="jumbotron">
+
+		<h1 class="text-center"><strong>Welcome to GIFTASTIC!</strong></h1>
+		<h2 class="text-center" id="instructions">Press the button to get some GIFs'</h2>
+		
+	</div>
+
+	<!--Rules of Bootstrap 12-->
+	<!-- Buttons will go here-->
+	<div class="row" id="buttonArea">
+	</div>
+
+	<!--GIFS and search area-->
+	<div class="row">
+
+		<!--GIFS go here-->
+		<div class="col-md-10" id="gifArea">
+		</div>
+		
+		<!-- User Area-->
+		<div class="col-md-2 forPanel">
+			<form id="animalArea">
+					<!--for= specifies which form element a label is bound to-->
+				<label for="animal-input" class="inputLabel">Pick an Animal</label>
+				<input type="text" name="animal-input"><br> <!--Look up what input does-->
+
+				<!--Where the triggered button adds a new animal-->
+				<!--Probably have to use prepend or append (test out)-->
+				<input  class="text-center" type="add-animal" type="submit" value="Submit"> <!--Style the button-->
+
+			</form>
+		</div>
+
+	</div>
+
+	
+	<!--This will be my footer area-->
+	<div class="row">
+		<div id="footer">
+		</div>
+	</div>
+
+	<!-- Sticky Footer-->
+	<div class= "footer navbar-fixed-bottom text-center" id="footerPanel">
+		<div id="copyright">
+		JKK Entertainment <!--Review how to make the copyright symbol-->
+		</div>
+		<!--Remember to style-->
+	</div>
+
+
+</div>
+
+<script type="text/javascript" src="assets/javascript/game.js"></script>
+
+</body>
+</html>
