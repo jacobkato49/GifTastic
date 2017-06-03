@@ -4,9 +4,6 @@
 	<meta charset="UTF-8">
 	<title>HOORAY for GIPHY'S!</title>
 
-	<!-- LINK to jQuery Library-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -18,7 +15,7 @@
 <body>
 
 <!-- Bootstrap starts here-->
-<div class="container">
+<div class="container"> <!-- Starts with the container-->
 	
 	<!-- Jumbotron-->
 	<div class="jumbotron">
@@ -28,7 +25,7 @@
 		
 	</div>
 
-	<!--Rules of Bootstrap 12-->
+	<!--Rules of Bootstrap (12)-->
 	<!-- Buttons will go here-->
 	<div class="row" id="buttonArea">
 	</div>
@@ -43,13 +40,19 @@
 		<!-- User Area-->
 		<div class="col-md-2 forPanel">
 			<form id="animalArea">
-					<!--for= specifies which form element a label is bound to-->
+
+
+					<!--ASK TA's about for to clarify-->
+					<!--[Definition] for= specifies which form element a label is bound to-->
 				<label for="animal-input" class="inputLabel">Pick an Animal</label>
-				<input type="text" name="animal-input"><br> <!--Look up what input does-->
+				<input type="text" id="animalInput"><br> 
+														<!--side note: Look up what input does-->
+
 
 				<!--Where the triggered button adds a new animal-->
 				<!--Probably have to use prepend or append (test out)-->
-				<input  class="text-center" type="add-animal" type="submit" value="Submit"> <!--Style the button-->
+				<input  class="text-center" id="add-animal" type="submit" value="Submit"> 
+																					<!--Style the button-->
 
 			</form>
 		</div>
@@ -73,6 +76,9 @@
 
 
 </div>
+
+<!-- LINK to jQuery Library-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <script type="text/javascript" src="assets/javascript/game.js"></script>
 
