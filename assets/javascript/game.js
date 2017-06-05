@@ -133,19 +133,19 @@ function fetch() {
 function animateGif () {
 
 	// use the data state to make the image move or stand still
-	var state= $(this).find("img").attr("data-state");
+	var state= $(this).attr("data-state");
 
 	// create a if-else statement 
 	// if the gif is not moving change the state to animate 
-	if (state =="still") {
-		$(this).find("img").attr("src", $(this).find("img").attr("data-animate"));
-		$(this).find("img").attr("data-state","animate");
+	if (state === "still") {
+		$(this).attr("src", $(this).data("animate"));
+		$(this).attr("data-state","animate");
 
 
 	}
 	 else {
-		$(this).find("img").attr("src", $(this).find("img").attr("data-still"));
-		$(this).find("img").attr("data-state","still");
+		$(this).attr("src", $(this).data("still"));
+		$(this).attr("data-state", "still");
 	}
 }
 
