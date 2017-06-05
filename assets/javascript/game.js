@@ -137,7 +137,7 @@ function animateGif () {
 
 	// create a if-else statement 
 	// if the gif is not moving change the state to animate 
-	if (state==="still") {
+	if (state =="still") {
 		$(this).find("img").attr("src", $(this).find("img").attr("data-animate"));
 		$(this).find("img").attr("data-state","animate");
 
