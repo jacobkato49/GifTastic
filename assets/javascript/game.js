@@ -85,14 +85,14 @@ function fetch() {
 
 	.done(function(result) {
 	// Grab the results and the properites of the results
-	var dataArray= results.data;
+	var dataArray= result.data;
 
 
 	// Display the GIF's
 	$("#gifArea").empty();
 
 	// for loop to iterate through the array of GIF's 
-		for (var i=0; i < data.Array.length; i++) {
+		for (var i=0; i < dataArray.length; i++) {
 
 			var newDiv= $("<div>");
 			newDiv.addClass("animalGif");
@@ -157,8 +157,8 @@ $(document).ready(function() {
 
 
 // The user create the buttons after the page has loaded and find the gifs
-$(document).on("click",".animalButton", fetch();
+$(document).on("click",".animalButton", fetch);
 
 
 // Event handler to animate the gifs (start/stop)
-$(document).on("click", "animalGif", animateGif();
+$(document).on("click", ".animalGif", animateGif);
