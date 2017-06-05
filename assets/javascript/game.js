@@ -1,7 +1,7 @@
 // my animals will go in a array
 
 	//---Game Variables---//
-var animals= ["gopher", "kangaroo", "eagle", "elephant", "sheep", "penguin", "bluefin tuna", "lynx", "cheetah", "jaguar", "t-rex", "pig", "platypus", "gorilla", "lion", "komodo dragon", "phoenix"];
+var animals= ["gopher", "kangaroo", "eagle", "elephant", "sheep", "penguin"];
 // side note: make sure giphy can pick up on all the animals in the array
 
 console.log(animals);
@@ -17,8 +17,6 @@ function buttonCreate() {
 
 	// now create a loop to get through the array of animals I created
 	for(var i = 0; i<animals.length; i++) {
-		console.log(animals.length);
-		console.log(animals[2]);
 
 		// creating buttons dynamically in the array
 		var button= $("<button>");
@@ -49,8 +47,6 @@ $("add-animal").click(function(event){
 	// why do I have to use this?
 	event.preventDefault(); // Description = this method is called, the default action of the event will not be triggered
 
-
-
 	// grab the value from the user input and trim the whitespace
 	var userAnimal= $("#animalInput").val().trim();
 	console.log(userAnimal);
@@ -68,9 +64,101 @@ $("add-animal").click(function(event){
 
 
 
+//---Fetch the GIFS from the API--//
+
+function fetch() {
+
+	// Get the animal name from the button clicked
+	var animalName= $(this).attr("data-animal");
+	// Make the string out of the animal name
+	var animalString= animalName.split("").join("+");
+
+	// GIPHY URL into a variable (hold the url)
+	var queryUrl= "https://api.giphy.com/v1/gifs/search?q=" + animalString + "&rating=pg-13&limit=20&api_key=dc6zaTOxFJmzC";
 
 
-// GIPHY URL
- // Create a variable to hold the url
+	//AJAX call for the GIPHY API
+	$.ajax({
+		method: "GET",
+		url: queryUrl,
+	})
 
-//AJAX call for the GIPHY API
+	.done(function(result) {
+	// Grab the results and the properites of the results
+	var dataArray= results.data;
+
+
+	// Display the GIF's
+	$("#gifArea").empty();
+
+	// for loop to iterate through the array of GIF's 
+		for (var i=0; i < data.Array.length; i++) {
+
+			var newDiv= $("<div>");
+			newDiv.addClass("animalGif");
+
+			// displays the rating in the html for each animal in the array
+			var newRating= $("<h2>").html("Rating: " + dataArray[i].rating);
+
+			// appends the new rating within the created div to the page
+			newDiv.append(newRating);
+
+
+			// create a new img
+			var newImg = $("<img>");
+
+			
+			// add attributes to the new image (fixed height)//
+			// grab the value for the attribute location of the image
+			newImg.attr("src", dataArray[i].images.fixed_height_still.url);
+			// grab the value for the attribute "data still"		
+			newImg.attr("data-still", dataArray[i].images.fixed_height_still.url);
+			// grab the value for the attribute "data animate"	
+			newImg.attr("data-animate", dataArray[i].images.fixed_height_still.url);
+			// grab the value for the attribute "data-state"	
+			newImg.attr("data-state", "still");
+
+			//append the image to the div
+			newDiv.append(newImg);
+
+
+			// append the Gifs to the gifArea
+			$("#gifArea").append(newDiv);
+		}
+
+	});
+
+}
+
+function animateGif () {
+
+	// use the data state to make the image move or stand still
+	var state= $(this).find("img").attr("data-state");
+
+	// create a if-else statement 
+	// if the gif is not moving change the state to animate 
+	if (state==="still") {
+		$(this).find("img").attr("src", $(this).find("img").attr("data-animate"));
+		$(this).find("img").attr("data-state","animate");
+
+
+	}
+	 else {
+		$(this).find("img").attr("src", $(this).find("img").attr("data-still"));
+		$(this).find("img").attr("data-state","still");
+	}
+}
+
+
+// Create my buttons I created when the page loads
+$(document).ready(function() {
+	buttonCreate();
+});
+
+
+// The user create the buttons after the page has loaded and find the gifs
+$(document).on("click",".animalButton", fetch();
+
+
+// Event handler to animate the gifs (start/stop)
+$(document).on("click", "animalGif", animateGif();

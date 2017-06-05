@@ -1,2 +1,2 @@
 # GifTastic
-GIPHY API w/ dynaic webpage.  
+GIPHY API w/ dynamic webpage.  
