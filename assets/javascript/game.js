@@ -135,16 +135,18 @@ function animateGif () {
 	// use the data state to make the image move or stand still
 	var state= $(this).attr("data-state");
 
+	console.log(state); //state is undefined....figure out why it is undefined
+
 	// create a if-else statement 
 	// if the gif is not moving change the state to animate 
 	if (state === "still") {
-		$(this).attr("src", $(this).data("animate"));
+		$(this).attr("src", $(this).attr("data-animate"));
 		$(this).attr("data-state","animate");
 
 
 	}
 	 else {
-		$(this).attr("src", $(this).data("still"));
+		$(this).attr("src", $(this).attr("data-still"));
 		$(this).attr("data-state", "still");
 	}
 }
